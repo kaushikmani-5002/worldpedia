@@ -1,38 +1,22 @@
-<header>
-    <div class="outer_div">
-        <div class="inner">
-            <span>
-                <img src="assets/logo.png" alt="Worldpedia">
-            </span>
-            <span>Best list of all countries with their flags<br>on the whole internet !!!</span>
-        </div>
-    </div>
-</header>
-<div class="search">
-    <div class="search_bar">
-        <input type="text">
-        <button>Search</button>
-    </div>
-</div>
-<div class="content-container">
-    
-</div>
-<footer>
-    <div class="footer_outer">
-        <div class="footer-inner">
-            <div class="top-content">
-                <span>
-                    <img src="assets/logo.png" alt="Worldpedia">
-                </span>
-                <div>
-                    <span><input type="email" placeholder="Enter Email"></span>
-                    <button>Subscribe</button>
-                </div>
+<app-header></app-header>
+
+<div class="row content-container">
+    <div *ngFor="let country of countriesList.slice(0,listSize)" class="col country_container">
+        <div class="country_card">
+            <div class="country_image">
+                <img [src]="country.flags.png" [alt]="country.flags.alt" width="250" height="150">
             </div>
-            <div class="bottom-content">
-                <span>Worldpedia Inc</span>
-                <span class="copyrights-info">2023 | All Rights Reserved</span>
+            <div class="country_info">
+                <span>{{country.name.common}}</span>
+                <span>{{country.region}}</span>
             </div>
         </div>
     </div>
-</footer>
+    <div class="row load_more" *ngIf="countriesList.length > 0">
+        <button class="load_more_button" (click)="loadMore()">Load More</button>
+    </div>
+</div>
+
+<app-footer></app-footer>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
