@@ -1,124 +1,65 @@
-.outer_div{
-    background: #1c4278;
-    width: 100%;
-    .inner{
-        display: flex;
-        justify-content: space-between;
-        width: 80%;
-        margin: auto;
-        padding: 3rem 0;
-        img{
-            width: 80%;
-        }
-        span:last-of-type{
-            display: flex;
-            align-items: center;
-            color: #fff;
-            font-family: system-ui;
-            text-align-last: end;
-        }
+.content-container{
+    height: calc(100vh - 402px);
+    overflow: auto;
+    max-width: 90%;
+    margin: auto;
+    justify-content: center;
+    margin-top: 4rem;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.content-container::-webkit-scrollbar{
+    display: none;
+}
+
+.country_container{
+    cursor: pointer;
+    max-width: max-content;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 1rem;
+    .country_image{
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .country_card{
+        margin-bottom: 1rem;
     }
 }
 
-.search_bar{
-    padding: 1.2rem 1rem;
-    margin: auto;
-    border-radius: 4px;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background: #fff;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    input[type=text]{
-        padding: 0.6rem 1rem;
-        border-radius: 4px;
-        background: transparent;
-        border: 1px solid #cccccc;
-        outline: none;
-        width: 85%;
+.country_card .country_info{
+    span{
+        display: flex;
+        flex-direction: column;
     }
-    button{
-        padding: 0.6rem 1.2rem;
-        font-family: sans-serif;
+    span:first-of-type{
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    span:last-of-type{
         text-transform: uppercase;
-        background-color: #064885;
-        color: #fff;
+        color: #9a9a9a;
+        font-size: 12px;
+        font-weight: 600;
+    }
+}
+
+.load_more{
+    justify-content: center;
+    margin: 1rem 0 2rem 0;
+    .load_more_button{
+        max-width: max-content;
         border: none;
         border-radius: 4px;
-        font-size: 14px;
-        width: 10%;
+        padding: 0.5rem 1rem;
+        background-color: #064885;
+        color: #FFF;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-family: system-ui;
+        font-weight: 600;
     }
-}
-
-.search{
-    width: 100%;
-    position: fixed;
-    top: 7rem;
-}
-
-.footer_outer{
-    border: 1px solid;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #272727;
-    .footer-inner{
-        width: 80%;
-        margin: auto;
-        padding: 2rem 0 1.5rem 0;
-        .top-content{
-            img{
-                width: 80%;
-            }
-            span, div{
-                max-width: max-content;
-            }
-            div{
-                display: flex;
-                flex-direction: column;
-            }
-            input[type="email"]{
-                padding: 0.6rem 0.8rem;
-                border-radius: 4px;
-                background: #fff;
-                border: 1px solid #cccccc;
-                outline: none;
-                width: 20rem;
-            }
-            button{
-                max-width: max-content;
-                align-self: flex-end;
-                padding: 0.6rem 1.2rem;
-                text-transform: uppercase;
-                background-color: #064885;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                font-size: 14px;
-                width: 45%;
-                margin-top: 0.5rem;
-            }
-        }
-        span{
-            color: #dbdbdb;
-            font-weight: 600;
-            font-family: sans-serif;
-            font-size: 12px;
-        }
-        .bottom-content{
-            margin-top: 1rem;
-            div{
-                display: flex;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-            }
-        }
-    }
-}
-
-.top-content, .bottom-content{
-    display: flex;
-    justify-content: space-between;
 }
