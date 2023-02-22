@@ -7,7 +7,7 @@
                 <img [src]="country.flags.png" [alt]="country.flags.alt" width="250" height="150">
             </div>
             <div class="country_info">
-                <span>{{country.name.common}}</span>
+                <span>{{country.name.common.length > 25 ? country.name.common.slice(0,25) + "..." : country.name.common}}</span>
                 <span>{{country.region}}</span>
             </div>
         </div>
