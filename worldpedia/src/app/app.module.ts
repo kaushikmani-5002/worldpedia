@@ -9,6 +9,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-top-right'
+    }),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

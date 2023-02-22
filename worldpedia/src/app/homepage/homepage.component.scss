@@ -20,6 +20,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     margin: 1rem;
+    height: max-content;
     .country_image{
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -61,5 +62,52 @@
         font-size: 12px;
         font-family: system-ui;
         font-weight: 600;
+    }
+}
+
+.not_found{
+    display: flex;
+    margin-top: 6rem;
+    flex-direction: column;
+    align-items: center;
+    span{
+        margin-top: 2rem;
+        font-size: 30px;
+        text-transform: capitalize;
+        font-weight: 800;
+        color: #9a9a9a;
+    }
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    span:first-of-type{
+        font-size: 16px;
+        font-weight: 600;
+        font-family: sans-serif;
+    }
+    span:last-of-type{
+        cursor: pointer;
+    }
+}
+
+.flag_img{
+    img{
+        border: 1px solid #cccccc70;
+        border-radius: 4px;
+    }
+}
+
+.country_info{
+    margin-top: 1rem;
+    font-family: sans-serif;
+    .col-3{
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .col{
+        font-size: 14px;
+        color: #9a9a9a;
     }
 }

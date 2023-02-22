@@ -6,8 +6,8 @@
                     <img src="assets/logo.png" alt="Worldpedia">
                 </span>
                 <div>
-                    <span><input type="email" placeholder="Enter Email"></span>
-                    <button>Subscribe</button>
+                    <span><input type="text" placeholder="Enter Email" [(ngModel)]="mail"></span>
+                    <button type="submit" (click)="validateEmail()">Subscribe</button>
                 </div>
             </div>
             <div class="bottom-content">
