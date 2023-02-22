@@ -1,7 +1,7 @@
-<app-header></app-header>
+<app-header (search)="searchCountries($event)"></app-header>
 
-<div class="row content-container">
-    <div *ngFor="let country of countriesList.slice(0,listSize)" class="col country_container">
+<div class="row content-container" *ngIf="(countriesList.length > 0 && !noResultsFound) else notFound">
+    <div *ngFor="let country of countriesList.slice(0,listSize)" class="col country_container" (click)="openModal(country)">
         <div class="country_card">
             <div class="country_image">
                 <img [src]="country.flags.png" [alt]="country.flags.alt" width="250" height="150">
@@ -13,10 +13,63 @@
         </div>
     </div>
     <div class="row load_more" *ngIf="countriesList.length > 0">
-        <button class="load_more_button" (click)="loadMore()">Load More</button>
+        <button class="load_more_button" (click)="loadMore()" [hidden]="listSize >= countriesList.length">Load More</button>
     </div>
 </div>
+<ng-template #notFound>
+    <div class="not_found" *ngIf="noResultsFound">
+        <img src="assets/404.png" width="300" alt="Not Found">
+        <span>Oops! No countries found</span>
+    </div>
+</ng-template>
 
 <app-footer></app-footer>
+
+<button hidden id="openModal" data-bs-toggle="modal" data-bs-target="#countryModal"></button>
+<div class="modal fade" id="countryModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="heading">
+                <span>{{currentCountry?.name.common}}</span>
+                <span data-bs-dismiss="modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </span>
+            </div>
+            <div class="flag_img">
+                <img [src]="currentCountry?.flags.png" [alt]="currentCountry?.flags.alt" width="250" height="150">
+            </div>
+            <div class="country_info">
+                <div class="row">
+                    <span class="col-3">Capital</span>
+                    <span class="col">{{currentCountry?.capital[0]}}</span>
+                </div>
+                <div class="row">
+                    <span class="col-3">Continent</span>
+                    <span class="col">{{currentCountry?.continents[0]}}</span>
+                </div>
+                <div class="row">
+                    <span class="col-3">Currency</span>
+                    <span class="col">{{returnCurrency(currentCountry?.currencies)}}</span>
+                </div>
+                <div class="row">
+                    <span class="col-3">Languages</span>
+                    <span class="col">{{returnArray(currentCountry?.languages)}}</span>
+                </div>
+                <div class="row">
+                    <span class="col-3">Population</span>
+                    <span class="col">{{returnPopulation(currentCountry?.population)}} +</span>
+                </div>
+                <div class="row">
+                    <span class="col-3">Timezone</span>
+                    <span class="col">{{currentCountry?.timezones[0]}}</span>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

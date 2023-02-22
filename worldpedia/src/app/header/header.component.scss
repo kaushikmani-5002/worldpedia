@@ -34,7 +34,7 @@
     width: 80%;
     display: flex;
     justify-content: space-between;
-    input[type=text]{
+    input[type=search]{
         padding: 0.4rem;
         border-radius: 4px;
         background: transparent;
@@ -54,6 +54,9 @@
         height: 100%;
         margin-left: 20px;
     }
+    button:disabled{
+      cursor: not-allowed;
+    }
 }
 
 .search{
@@ -64,7 +67,7 @@
 
 @media (max-width: 1330px) and (min-width: 1085px){
     .search_bar{
-        input[type=text]{
+        input[type=search]{
             width: 95%;
         }
         button{
@@ -115,7 +118,7 @@
         .search_bar{
             width: 90%;
             padding: 0.5rem;
-            input[type=text]{
+            input[type=search]{
                 padding: 0.2rem;
             }
         }
